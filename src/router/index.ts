@@ -1,4 +1,4 @@
-import type Koa from 'Koa'
+import Koa from 'koa'
 
 import gitWebHook from './noauth/gitWebHook'
 

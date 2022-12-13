@@ -1,4 +1,4 @@
-import type Koa from 'koa'
+import Koa from 'koa'
 // import path from 'path'
 import koaCors from '@koa/cors'
 // import koaStatic from 'koa-static'
