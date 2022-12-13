@@ -8,12 +8,12 @@ const router = new Router({
 
 router.post('/push', (ctx, next) => {
   const {
-    hook: { events = [] } = {},
+    hook,
     repository: { full_name = '' } = {},
     head_commit: { message = '' } = {}
   } = ctx.request.body ?? ({} as any)
-  console.log('params', message, full_name, events)
-  if (message === 'deploy' && full_name === 'lzfuchen/blog' && events.includes('push')) {
+  console.log('params', message, full_name, hook)
+  if (message === 'deploy' && full_name === 'lzfuchen/blog') {
     console.log('=====执行脚本====')
     // 执行脚本
     exec('sh /usr/local/src/myblog/docker-start-myblog.sh', (err, stdout, stderr) => {
