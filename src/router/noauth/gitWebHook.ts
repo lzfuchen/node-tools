@@ -5,7 +5,7 @@ const router = new Router({
 })
 
 router.post('/push', (ctx, next) => {
-  console.log(ctx.params)
+  console.log(ctx.request.body)
   ctx.body = {
     success: true
   }
