@@ -12,7 +12,7 @@ router.post('/push', (ctx, next) => {
     repository: { full_name = '' } = {},
     head_commit: { message = '' } = {}
   } = ctx.request.body ?? ({} as any)
-  console.log('params', message, full_name, hook)
+  console.log('params', ctx.request.body)
   if (message === 'deploy' && full_name === 'lzfuchen/blog') {
     console.log('=====执行脚本====')
     // 执行脚本
