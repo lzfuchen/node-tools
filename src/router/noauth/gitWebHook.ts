@@ -12,9 +12,7 @@ router.post('/push', (ctx, next) => {
     repository: { full_name = '' } = {},
     head_commit: { message = '' } = {}
   } = ctx.request.body ?? ({} as any)
-  console.log('params', ctx.request.body)
   if (message === 'deploy' && full_name === 'lzfuchen/blog') {
-    console.log('=====执行脚本====')
     // 执行脚本
     exec('sh /usr/local/src/myblog/docker-start-myblog.sh', (err, stdout, stderr) => {
       if (err) {
