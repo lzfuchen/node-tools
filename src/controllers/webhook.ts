@@ -18,14 +18,20 @@ export async function push(ctx: Context, next: () => Promise<any>) {
         console.log(`stderr: ${stderr}`)
       })
     } else if (full_name === 'lzfuchen/tools-server') {
-      exec(`sh ${path.resolve(__dirname, '../../deploy.sh')}`, (err, stdout, stderr) => {
-        if (err) {
-          console.error(err)
-          return
+      exec(
+        `sh deploy.sh`,
+        {
+          cwd: path.resolve(__dirname, '../../')
+        },
+        (err, stdout, stderr) => {
+          if (err) {
+            console.error(err)
+            return
+          }
+          console.log(`stdout: ${stdout}`)
+          console.log(`stderr: ${stderr}`)
         }
-        console.log(`stdout: ${stdout}`)
-        console.log(`stderr: ${stderr}`)
-      })
+      )
     }
   }
   ctx.body = ctx.$success()
