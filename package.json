@@ -1,7 +1,7 @@
 {
-  "name": "node-tools",
+  "name": "tools-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "一个基于koa 的工具服务",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon -r tsconfig-paths/register src/app.ts --file",
