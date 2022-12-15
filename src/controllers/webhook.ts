@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { Context } from 'koa'
+import path from 'path'
 import { exec } from 'child_process'
 
 export async function push(ctx: Context, next: () => Promise<any>) {
@@ -17,7 +18,7 @@ export async function push(ctx: Context, next: () => Promise<any>) {
         console.log(`stderr: ${stderr}`)
       })
     } else if (full_name === 'lzfuchen/tools-server') {
-      exec('sh ../../deploy.sh', (err, stdout, stderr) => {
+      exec(`sh ${path.resolve(__dirname, '../../deploy.sh')}`, (err, stdout, stderr) => {
         if (err) {
           console.error(err)
           return
