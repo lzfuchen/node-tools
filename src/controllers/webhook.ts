@@ -27,9 +27,9 @@ export async function push(ctx: Context, next: () => Promise<any>) {
       })
     }
   }
-  ctx.$success()
+  ctx.body = ctx.$success()
 }
 
 export async function test(ctx: Context, next: () => Promise<any>) {
-  ctx.body = 'test'
+  ctx.body = ctx.$success('测试成功')
 }
