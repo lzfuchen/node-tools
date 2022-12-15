@@ -13,6 +13,11 @@ module.exports = {
   rules: {
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
-    'no-unused-vars': 'warn'
+    'no-unused-vars': 'off',
+    'import/prefer-default-export': 'off',
+    'no-shadow': 'off',
+    'lines-between-class-members': 'off',
+    'no-dupe-class-members': 'off',
+    'no-else-return': 'off'
   }
 }

@@ -1,7 +1,7 @@
 import Koa from 'koa'
 
-import gitWebHook from './noauth/gitWebHook'
+import webhook from './noauth/webhook'
 
 export default (app: Koa) => {
-  app.use(gitWebHook.routes()).use(gitWebHook.allowedMethods())
+  app.use(webhook.routes()).use(webhook.allowedMethods())
 }

@@ -4,9 +4,9 @@ import router from './router'
 
 const app = new Koa()
 
-// 安装中间件
+// 中间件
 middleware(app)
-// 安装路由
+// 路由
 router(app)
 
 app.listen(3000, () => {
