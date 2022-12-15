@@ -38,5 +38,5 @@ export async function push(ctx: Context, next: () => Promise<any>) {
 }
 
 export async function test(ctx: Context, next: () => Promise<any>) {
-  ctx.body = ctx.$success('测试git deploy5')
+  ctx.body = ctx.$success('测试git deploy6')
 }
