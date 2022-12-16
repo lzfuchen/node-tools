@@ -1,3 +1,4 @@
+/* eslint-disable no-redeclare */
 /* eslint-disable no-nested-ternary */
 import { CommonCode, CommonMessage } from '@/constants'
 
@@ -62,3 +63,6 @@ export default class BaseResponse {
     )
   }
 }
+
+export type success = typeof BaseResponse.success
+export type fail = typeof BaseResponse.fail

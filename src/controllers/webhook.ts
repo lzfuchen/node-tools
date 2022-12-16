@@ -40,9 +40,9 @@ export async function push(ctx: Context, next: () => Promise<any>) {
       )
     }
   }
-  ctx.body = ctx.$success()
+  ctx.success()
 }
 
 export async function test(ctx: Context, next: () => Promise<any>) {
-  ctx.body = ctx.$success('测试git deploy success3')
+  ctx.success('测试git deploy success3')
 }

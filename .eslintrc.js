@@ -18,6 +18,7 @@ module.exports = {
     'no-shadow': 'off',
     'lines-between-class-members': 'off',
     'no-dupe-class-members': 'off',
-    'no-else-return': 'off'
+    'no-else-return': 'off',
+    'no-unused-expressions': 'off'
   }
 }
