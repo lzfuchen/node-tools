@@ -9,14 +9,20 @@ export async function push(ctx: Context, next: () => Promise<any>) {
   if (message === 'deploy') {
     if (full_name === 'lzfuchen/blog') {
       // 执行脚本
-      exec('sh /usr/local/src/myblog/docker-start-myblog.sh', (err, stdout, stderr) => {
-        if (err) {
-          console.error(err)
-          return
+      exec(
+        'sh myblog/docker-start-myblog.sh',
+        {
+          cwd: path.resolve(__dirname, '../../../')
+        },
+        (err, stdout, stderr) => {
+          if (err) {
+            console.error(err)
+            return
+          }
+          console.log(`stdout: ${stdout}`)
+          console.log(`stderr: ${stderr}`)
         }
-        console.log(`stdout: ${stdout}`)
-        console.log(`stderr: ${stderr}`)
-      })
+      )
     } else if (full_name === 'lzfuchen/tools-server') {
       exec(
         `sh deploy.sh`,
@@ -38,5 +44,5 @@ export async function push(ctx: Context, next: () => Promise<any>) {
 }
 
 export async function test(ctx: Context, next: () => Promise<any>) {
-  ctx.body = ctx.$success('测试git deploy success2')
+  ctx.body = ctx.$success('测试git deploy success3')
 }
