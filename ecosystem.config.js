@@ -4,7 +4,7 @@ module.exports = {
       name: 'tools-server',
       script: 'app.js',
       exec_mode: 'cluster',
-      instances: 2
+      instances: 1
     }
   ]
 }
