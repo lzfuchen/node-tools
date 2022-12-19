@@ -4,7 +4,7 @@
   "description": "一个基于koa 的工具服务",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon -r tsconfig-paths/register src/app.ts --file",
+    "dev": "cross-env NODE_ENV=development nodemon -r tsconfig-paths/register src/app.ts --file",
     "build": "tsc && tsc-alias",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src --ext .ts"
@@ -22,6 +22,7 @@
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8.29.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",

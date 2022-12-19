@@ -1,3 +1,5 @@
+export const ENV_DEV = process.env.NODE_ENV === 'development'
+
 /**
  * @constant 通用的状态码
  */

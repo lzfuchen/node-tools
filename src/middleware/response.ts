@@ -1,7 +1,7 @@
 import type koa from 'koa'
 import response from '@/model/response'
 
-export default async (ctx: koa.Context, next: koa.Next) => {
+export default () => async (ctx: koa.Context, next: koa.Next) => {
   ctx.success = (...args: any) => {
     ctx.body = response.success(...args)
   }
