@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken'
 
 const PRIVATE_KEY = 'yigiaowoligiaogiao'
-const AUTH_KEY = '_tk'
 
 export const createToken = (payload: string | object | Buffer) => {
   return jwt.sign(payload, PRIVATE_KEY, { algorithm: 'HS512', expiresIn: '7d' })
