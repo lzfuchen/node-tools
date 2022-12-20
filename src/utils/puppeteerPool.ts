@@ -12,6 +12,7 @@ type PoolOptions = Options & {
 
 const defaultPoolOptions: PoolOptions = {
   maxUses: 2,
+  testOnBorrow: true,
   idleTimeoutMillis: 3600000
 }
 
@@ -20,17 +21,14 @@ export default function PuppeteerPool(options = defaultPoolOptions) {
 
   const factory = {
     async create() {
-      console.log('---create---')
       const browser: CustomBrowser = await launch()
       browser.$$useCount = 0
       return browser
     },
     destroy(browser) {
-      console.log('---destroy---')
       return browser.close()
     },
     validate(browser) {
-      console.log('---validate---', browser.$$useCount)
       return Promise.resolve(browser.$$useCount! < maxUses!)
     }
   } as Factory<CustomBrowser>
