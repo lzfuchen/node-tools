@@ -23,7 +23,7 @@ export default (app: Koa) => {
   // body-parse
   app.use(koaBodyParse())
   // log
-  app.use(logger())
+  // app.use(logger())
   // 静态资源
   app.use(koaStatic(path.resolve(__dirname, '../public')))
 }
