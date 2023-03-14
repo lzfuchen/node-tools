@@ -7,6 +7,7 @@ export default async (ctx: koa.Context, next: koa.Next) => {
     const { _tk } = ctx.request.body ?? ({} as any)
     if (!_tk) {
       ctx.fail(CommonCode.EXPIRE_TOKEN, '请先登录')
+      return
     }
     await verify(_tk)
     await next()

@@ -11,3 +11,7 @@ app.context.puppeteerPool = PuppeteerPool()
 middleware(app)
 // 路由
 router(app)
+
+app.listen(3000, () => {
+  console.log('server start on port: 3000')
+})
