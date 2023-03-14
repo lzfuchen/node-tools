@@ -20,6 +20,7 @@
     "@types/koa-bodyparser": "^4.3.10",
     "@types/koa-static": "^4.0.2",
     "@types/node": "^18.11.9",
+    "@types/require-directory": "^2.1.2",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "cross-env": "^7.0.3",

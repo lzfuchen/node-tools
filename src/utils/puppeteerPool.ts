@@ -1,6 +1,6 @@
 import puppeteer, { Browser } from 'puppeteer-core'
 import genericPool, { Options, Factory } from 'generic-pool'
-import { launch } from './puppetter'
+import { launch } from './puppeteer'
 
 type CustomBrowser = Browser & {
   $$useCount?: number
