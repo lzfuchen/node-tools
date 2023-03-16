@@ -1,14 +1,20 @@
 import Koa from 'koa'
+import requireDir from 'require-directory'
 import jwt from '@/middleware/jwt'
-import webhook from './noauth/webhook'
-import user from './noauth/user'
-import tools from './noauth/tools'
-import test from './noauth/test'
+
+function loaderRoutes(app: Koa, routes: Record<string, any>) {
+  Object.keys(routes).forEach((name) => {
+    const router = routes[name].default
+    app.use(router.routes()).use(router.allowedMethods())
+  })
+}
 
 export default (app: Koa) => {
-  app.use(webhook.routes()).use(webhook.allowedMethods())
-  app.use(user.routes()).use(user.allowedMethods())
-  app.use(tools.routes()).use(tools.allowedMethods())
-  app.use(test.routes()).use(test.allowedMethods())
+  const noAuthRoutes: Record<string, any> = requireDir(module, './noauth', { include: /.ts$/, extensions: ['ts'] })
+  const authRoutes: Record<string, any> = requireDir(module, './modules', { include: /.ts$/, extensions: ['ts'] })
+  // 加载不用授权的路由
+  loaderRoutes(app, noAuthRoutes)
   app.use(jwt)
+  // 加载需要授权的路由
+  loaderRoutes(app, authRoutes)
 }
